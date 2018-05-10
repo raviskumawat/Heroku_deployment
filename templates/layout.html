@@ -1,41 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-      <style>
-      body {
-    background-color: rgb(230, 182, 173);
-}
 
-h1 {
-    color: white;
-    text-align: center;
-}
+<head>
+    <style>
+        body {
+            
+             background-color: rgb(230, 182, 173);
+        
+            }
 
-p {
-    font-family: verdana;
-    font-size: 20px;
-}</style>
+        h1,
+        form {
+            color: rgb(204, 10, 10);
+            text-align: center;
+        }
+
+        p {
+            font-family: verdana;
+            font-size: 20px;
+        }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
 
-   
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js' ></script>    
+
     <title>ATM Intrusion Detection</title>
 
-  </head>
-  <body>
-      <form enctype=multipart/form-data action={{ url_for('play_audio') }}  name="handle"  method='POST'>
-          <input type="file" id="audio_file" name='audio_file'><br>
-          <br>
-          <input type="submit" value="Play Audio">
-      </form>
+</head>
 
-      {% block body %}{% endblock %}
-    <h1>Hello world</h1>
+<body background="../static/ravi.jpg">
+    <form enctype=multipart/form-data action={{ url_for( 'play_audio') }} name="handle" method='POST'>
+        <input type="file" id="audio_file" name='audio_file'>
+        <br>
+        <br>
+        <input type="submit" value="Play Audio">
+    </form>
 
-  </body>
+    <div id='change'>
+        <h1>"To be changed"</h1>
+        <button onclick=change_doc() value="Change the above text"></button>
+    </div>
+    <script>
+        function change_doc()
+        {
+            document.getElementById("change").innerHTML = "Changed haha";
+        }
+    </script>
+    <div>{% block body %}{% endblock %}
+        </div>
+    
 
-  
+</body>
+
+
 </html>

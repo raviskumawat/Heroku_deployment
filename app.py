@@ -1,6 +1,8 @@
 from flask import Flask, render_template,request
 #from werkzeug import secure_filename
 import os
+import json
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER']="/static"
 
@@ -17,8 +19,11 @@ def hello():
 def play_audio():
     if request.method=='POST':
         x=request.files['audio_file']
-        x.save(os.path.join(app.root_path,'static',x.filename))
-    return render_template('audio_play.html',**locals())
+        fname=os.path.join(app.root_path,'static',x.filename)
+        x.save(fname)
+        audio_data=[12,1,3,5,2,3]
+        filename=os.path.join('static',x.filename)
+    return render_template('audio_play.html',audio_data=audio_data,filename=filename)
 
 
 if __name__ == '__main__':
